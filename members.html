@@ -3,15 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club X</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Club X - Members</title>
+
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #0a0a0a;
         }
 
         /* NAVBAR */
@@ -22,7 +21,7 @@
         }
 
         nav a {
-            color: rgb(74, 73, 73);
+            color: rgb(120, 120, 120);
             margin: 0 15px;
             text-decoration: none;
             font-size: 14px;
@@ -32,30 +31,32 @@
             color: #0a26df;
         }
 
+        /* HERO */
         .hero {
             position: relative;
             width: 100%;
-        }
-
-        .hero img.bg {
-            width: 100%;
             height: 500px;
-            object-fit: cover;
-            display: block;
+            overflow: hidden;
         }
 
-        .hero img.logo {
+        .bg-video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo {
             position: absolute;
             top: 25%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px;
-            max-width: 70%;
-
+            width: 350px;
+            z-index: 2;
             animation: glowPulse 3s infinite alternate;
         }
 
-        .hero img.logo:hover {
+        .logo:hover {
             transform: translate(-50%, -55%) scale(1.05);
             filter: drop-shadow(0px 25px 40px rgb(255, 0, 0));
         }
@@ -70,56 +71,159 @@
             }
         }
 
-        .hero {
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery h2 {
+            grid-column: span 2;
+            color: white;
+            text-align: center;
+        }
+
+        /* MEMBER CARD */
+        .member {
             position: relative;
-            width: 100%;
-            height: 500px;
             overflow: hidden;
         }
 
-        /* VIDEO behaves like your old background image */
-        .bg-video {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .member-img {
             width: 100%;
-            height: 100%;
+            height: 300px;
             object-fit: cover;
+            display: block;
         }
 
-        /* LOGO stays on top */
-        .hero img.logo {
+        /* HANDLE OVERLAY */
+        .handle {
             position: absolute;
-            top: 25%;
+            bottom: 12%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 350px;
-            max-width: 70%;
+            transform: translateX(-50%) scale(0.9);
+            width: 70%;
+            opacity: 0;
+            transition: 0.3s ease;
             z-index: 2;
+        }
+
+        /* HOVER EFFECT */
+        .member:hover .handle {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+        }
+
+        /* DARK OVERLAY */
+        .member::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .member:hover::after {
+            opacity: 1;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
         }
     </style>
 </head>
 
-<div class="hero">
+<body>
 
-    <!-- VIDEO BACKGROUND -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="videos/Timeline13.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- HERO -->
+    <div class="hero">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="videos/Timeline13.mp4" type="video/mp4">
+        </video>
 
-    <!-- LOGO ON TOP -->
-    <a href="https://www.instagram.com/officialclubx">
-        <img src="images/clubxlogo.PNG" alt="Club X" class="logo">
-    </a>
+        <a href="https://www.instagram.com/officialclubx">
+            <img src="images/clubxlogo.PNG" class="logo">
+        </a>
+    </div>
 
-</div>
-<nav>
-    <a href="index.html">HOME</a>
-    <a href="events.html">EVENTS</a>
-    <a href="merch.html">MERCH</a>
-    <a href="members.html">MEMBERS</a>
-    <a href="gallery.html">GALLERY</a>
-    <a href="contact.html">CONTACT</a>
-</nav>
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="merch.html">MERCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <!-- MEMBERS -->
+    <div class="gallery">
+        <h2>Meet Our Members</h2>
+
+        <!-- MEMBER 1 -->
+        <div class="member">
+            <img src="images/SON03269.jpeg" class="member-img">
+            <a href="https://instagram.com/fredy_e34">
+                <img src="images/fredy.png" class="handle">
+            </a>
+        </div>
+
+        <!-- MEMBER 2 -->
+        <div class="member">
+            <img src="images/SON04385.JPG" class="member-img">
+            <a href="https://instagram.com/vettesyyy">
+                <img src="images/vettesyyy.png" class="handle">
+            </a>
+        </div>
+
+        <!-- MEMBER 3 -->
+        <div class="member">
+            <img src="images/IMG_9372.jpg" class="member-img">
+            <a href="https://instagram.com/jaimexmadridd">
+                <img src="images/jaime.png" class="handle">
+            </a>
+        </div>
+
+        <!-- MEMBER 4 -->
+        <div class="member">
+            <img src="images/SON04375.jpeg" class="member-img">
+            <a href="https://instagram.com/fsdamiannn">
+                <img src="images/damian.png" class="handle">
+            </a>
+        </div>
+
+        <!-- MEMBER 5 -->
+        <div class="member">
+            <img src="images/IMG_9100.jpeg" class="member-img">
+            <a href="https://instagram.com/1g2cme">
+                <img src="images/1g2me.png" class="handle">
+            </a>
+        </div>
+
+        <!-- MEMBER 6 -->
+        <div class="member">
+            <img src="images/SON04412.jpeg" class="member-img">
+            <a href="https://instagram.com/_edwinhernand3z_">
+                <img src="images/edwin.png" class="handle">
+            </a>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Club X
+    </footer>
+
 </body>
+
+</html>
