@@ -53,8 +53,25 @@
             top: 25%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 350px;
+            width: 500px;
             max-width: 70%;
+
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        .hero img.logo:hover {
+            transform: translate(-50%, -55%) scale(1.05);
+            filter: drop-shadow(0px 25px 40px rgb(255, 0, 0));
+        }
+
+        @keyframes glowPulse {
+            from {
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+            }
+
+            to {
+                filter: drop-shadow(0 0 60px rgb(255, 255, 255));
+            }
         }
 
         /* SECTION */
@@ -98,13 +115,7 @@
 <body>
 
     <!-- NAV -->
-    <nav>
-        <a href="#">HOME</a>
-        <a href="#">ABOUT</a>
-        <a href="#">EVENTS</a>
-        <a href="#">GALLERY</a>
-        <a href="#">CONTACT</a>
-    </nav>
+
 
     <header>
 
@@ -118,13 +129,24 @@
         </div>
 
     </header>
+    <nav>
+        <a href="#">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="merch.html">MERCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
 
     <!-- CONTENT -->
     <div class="container">
         <h2>About Club X</h2>
-        <p>
+        <video width="100%" controls>
+            <source src="videos/Timeline 1 2.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+            <p>
 
-        </p>
+            </p>
     </div>
 
     <!-- GALLERY -->
@@ -135,11 +157,14 @@
         <img src="images/SON04385.JPG">
 
     </div>
+    <video width="100%" controls>
+        <source src="videos/Untitleduu.mov" type="video/mp4">
+        Your browser does not support the video tag.
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Club X
-    </footer>
+        <!-- FOOTER -->
+        <footer>
+            © 2026 Club X
+        </footer>
 
 </body>
 
