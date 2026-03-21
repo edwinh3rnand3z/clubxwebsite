@@ -8,6 +8,15 @@
     <title>Club X</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -69,6 +78,179 @@
                 filter: drop-shadow(0 0 60px rgb(255, 255, 255));
             }
         }
+
+        /* GALLERY */
+        .gallery {
+            column-count: 3;
+            column-gap: 10px;
+            padding: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: block;
+            break-inside: avoid;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        @media (max-width: 900px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery {
+                column-count: 1;
+            }
+        }
+
+        /* GALLERY */
+        .gallery {
+            column-count: 3;
+            column-gap: 10px;
+            padding: 15px;
+        }
+
+        /* WRAP EACH IMAGE */
+        .card {
+            position: relative;
+            margin-bottom: 10px;
+            break-inside: avoid;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* IMAGE */
+        .card img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        /* DARK OVERLAY */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.55);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        /* TEXT */
+        .overlay h3 {
+            color: white;
+            letter-spacing: 5px;
+            font-size: 24px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* HOVER EFFECT */
+        .card:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.8);
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery {
+                column-count: 1;
+            }
+        }
+
+        .gallery {
+            column-count: 3;
+            column-gap: 10px;
+            padding: 15px;
+        }
+
+        .card {
+            position: relative;
+            margin-bottom: 10px;
+            break-inside: avoid;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card img,
+        .card video {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            transition: 0.3s;
+            background: black;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.4s;
+            pointer-events: none;
+        }
+
+        .overlay h3 {
+            color: white;
+            letter-spacing: 5px;
+            font-size: 24px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .card:hover img,
+        .card:hover video {
+            transform: scale(1.03);
+            filter: brightness(0.8);
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery {
+                column-count: 1;
+            }
+        }
     </style>
 </head>
 
@@ -86,6 +268,244 @@
         <a href="merch.html">MERCH</a>
         <a href="members.html">MEMBERS</a>
         <a href="gallery.html">GALLERY</a>
-        <a href="contact.html">CONTACT</a>
+
     </nav>
+
+    <div class="gallery">
+
+        <div class="card">
+            <img src="images/SON04385.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <video controls muted playsinline>
+                <source src="videos/Timeline-1.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/IMG_9372.jpg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <video controls muted playsinline>
+                <source src="videos/Timeline-1-2.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/SON04375.jpeg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC_0384.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <video controls muted playsinline>
+                <source src="videos/Timeline-1-3.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/SON04412.jpeg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/SON03637.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <video controls muted playsinline>
+                <source src="videos/Timeline-1rff.MOV" type="video/mp4">
+
+            </video>
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/SON03638.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/SON03708.jpeg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <img src="images/SON04362.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC_0427.jpeg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <video controls muted playsinline>
+                <source src="videos/Timeline13.mp4" type="video/mp4">
+
+            </video>
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC_0441.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC_0452.jpeg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <video controls muted playsinline>
+                <source src="videos/Untitleduu.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC_0458.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC04080.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC04095.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC04098.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/GPTempDownload.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/IMG_0683.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/IMG_0684.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/IMG_0685.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/IMG_0687-2.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/IMG_0687.JPG" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/IMG_2557.jpeg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/SON03269.jpeg" alt="Club X">
+            <div class="overlay">
+                <h3>CLUB X</h3>
+            </div>
+        </div>
+
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Club X
+    </footer>
 </body>
