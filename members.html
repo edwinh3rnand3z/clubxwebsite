@@ -71,7 +71,7 @@
             }
         }
 
-        /* GALLERY */
+        /* GALLERY GRID */
         .gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -131,6 +131,17 @@
             opacity: 1;
         }
 
+        /* MOBILE FIX */
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery h2 {
+                grid-column: span 1;
+            }
+        }
+
         /* FOOTER */
         footer {
             background: #111;
@@ -168,69 +179,57 @@
     <div class="gallery">
         <h2>Meet Our Members</h2>
 
-        <!-- MEMBER 1 -->
         <div class="member">
             <img src="images/SON03269.jpeg" class="member-img">
             <a href="https://instagram.com/fredy_e34">
-
-            <img src="images/fredy.png" class="handle">
-
-
+                <img src="images/fredy.png" class="handle">
             </a>
         </div>
 
-        <!-- MEMBER 2 -->
         <div class="member">
             <img src="images/SON04385.JPG" class="member-img">
             <a href="https://instagram.com/vettesyyy">
-
                 <img src="images/vettesyyy.png" class="handle">
-
             </a>
         </div>
 
-        <!-- MEMBER 3 -->
         <div class="member">
             <img src="images/IMG_9372.jpg" class="member-img">
             <a href="https://instagram.com/jaimexmadridd">
-
                 <img src="images/jaime.png" class="handle">
-
-             
             </a>
         </div>
 
-        <!-- MEMBER 4 -->
         <div class="member">
             <img src="images/SON04375.jpeg" class="member-img">
             <a href="https://instagram.com/fsdamiannn">
-
                 <img src="images/damian.png" class="handle">
-
             </a>
         </div>
 
-        <!-- MEMBER 5 -->
         <div class="member">
-            <img src="images/IMG_9100.jpeg" class="member-img">
-            <a href="https://instagram.com/1g2cme">
-
-                <img src="images/1g2me.png" class="handle">
-
+            <img src="images/danny.JPG" class="member-img">
+            <a href="https://instagram.com/skinlessmedia">
+                <img src="images/dannyig.png" class="handle">
             </a>
         </div>
 
-        <!-- MEMBER 6 -->
         <div class="member">
             <img src="images/SON04412.jpeg" class="member-img">
             <a href="https://instagram.com/_edwinhernand3z_">
-
                 <img src="images/edwin.png" class="handle">
+            </a>
+        </div>
 
+        <div class="member">
+            <img src="images/IMG_9100.jpeg" class="member-img">
+            <a href="https://instagram.com/1g2cme">
+                <img src="images/1g2me.png" class="handle">
             </a>
         </div>
 
     </div>
+
 
     <!-- FOOTER -->
     <footer>
