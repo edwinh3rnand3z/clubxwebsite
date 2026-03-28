@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club X</title>
+
 
     <style>
         body {
@@ -14,12 +16,14 @@
             color: white;
         }
 
+
         /* NAVBAR */
         nav {
             background-color: #111;
             padding: 15px;
             text-align: center;
         }
+
 
         nav a {
             color: rgb(140, 140, 140);
@@ -28,9 +32,11 @@
             font-size: 14px;
         }
 
+
         nav a:hover {
             color: #ffffff;
         }
+
 
         /* HERO */
         .hero {
@@ -38,11 +44,13 @@
             width: 100%;
         }
 
+
         .hero img.bg {
             width: 100%;
             height: 500px;
             object-fit: cover;
         }
+
 
         .hero img.logo {
             position: absolute;
@@ -54,28 +62,146 @@
             animation: glowPulse 3s infinite alternate;
         }
 
+
         .hero img.logo:hover {
             transform: translate(-50%, -55%) scale(1.05);
             filter: drop-shadow(0px 25px 40px red);
         }
+
 
         @keyframes glowPulse {
             from {
                 filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
             }
 
+
             to {
                 filter: drop-shadow(0 0 60px white);
             }
         }
 
-        /* SERVICES SECTION */
+
+        /* EVENT SECTION */
+        .event-section {
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
+
+
+        .event-section h2 {
+            font-size: 32px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+
+        .event-section p {
+            color: #bbb;
+            margin-bottom: 30px;
+        }
+
+
+        .event-card {
+            max-width: 800px;
+            margin: auto;
+            background: #111;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: eventReveal 1s ease-out, eventFloat 3.2s ease-in-out infinite alternate;
+        }
+
+
+        .event-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.14);
+        }
+
+
+        .event-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        .event-info {
+            padding: 25px;
+        }
+
+
+        .event-info h3 {
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+
+
+        .event-meta {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+
+        .event-description {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+
+        .event-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+        .event-btn:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+        }
+
+
+        @keyframes eventReveal {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes eventFloat {
+            from {
+                transform: translateY(0);
+            }
+
+
+            to {
+                transform: translateY(-8px);
+            }
+        }
+
+
+        /* SERVICES */
         .services {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             padding: 40px;
         }
+
 
         .service-box {
             background: #111;
@@ -85,58 +211,17 @@
             position: relative;
         }
 
+
         .service-box:hover {
             transform: translateY(-10px);
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
         }
 
-        .service-box::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 1px;
-            background: linear-gradient(45deg, #fff, #ff0ddf, rgb(255, 117, 255));
-            -webkit-mask:
-                linear-gradient(#000 0 0) content-box,
-                linear-gradient(#000 0 0);
-            -webkit-mask-composite: xor;
-            opacity: 0;
-            transition: 0.3s;
-        }
 
-        .service-box:hover::before {
-            opacity: 1;
-        }
-
-        .service-box::before {
-            pointer-events: none;
-        }
-
-        /* IG HANDLES (THIS WAS YOUR ISSUE 🔥) */
         .handles {
             margin-top: 15px;
         }
 
-        .handles a {
-            display: inline-block;
-            margin: 5px 5px 0 0;
-            padding: 6px 12px;
-            background: #222;
-            border-radius: 20px;
-            font-size: 12px;
-            color: #aaa;
-            text-decoration: none;
-            transition: 0.3s;
-            letter-spacing: 1px;
-        }
-
-        .handles a:hover {
-            color: white;
-            background: linear-gradient(45deg, #ff7ad0, rgb(235, 19, 192));
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
 
         .handles a {
             display: inline-block;
@@ -148,18 +233,15 @@
             color: #aaa;
             text-decoration: none;
             transition: 0.3s;
-            letter-spacing: 1px;
         }
+
 
         .handles a:hover {
             color: white;
             background: linear-gradient(45deg, #f109a8, rgb(226, 82, 173));
             transform: scale(1.1);
-            box-shadow:
-                0 0 5px #f107a3,
-                0 0 10px rgb(233, 75, 223),
-                0 0 20px white;
         }
+
 
         /* GALLERY */
         .gallery {
@@ -169,20 +251,24 @@
             padding: 20px;
         }
 
+
         .gallery img {
             width: 100%;
             height: 300px;
             object-fit: cover;
         }
 
+
         /* VIDEO */
         .video-section {
             padding: 20px;
         }
 
+
         video {
             width: 100%;
         }
+
 
         /* FOOTER */
         footer {
@@ -192,29 +278,40 @@
             font-size: 12px;
         }
 
+
         /* MOBILE */
         @media (max-width: 768px) {
             .services {
                 grid-template-columns: 1fr;
             }
 
+
             .gallery {
                 grid-template-columns: 1fr;
+            }
+
+
+            .event-card img {
+                height: 220px;
             }
         }
     </style>
 </head>
 
+
 <body>
+
 
     <!-- HERO -->
     <div class="hero">
-        <img src="images/clubx.jpeg" class="bg">
+        <img src="images/clubx.webp" class="bg">
+
 
         <a href="https://www.instagram.com/officialclubx" target="_blank">
             <img src="images/clubxlogo.PNG" class="logo">
         </a>
     </div>
+
 
     <!-- NAV -->
     <nav>
@@ -226,13 +323,45 @@
         <a href="contact.html">CONTACT</a>
     </nav>
 
+
+    <!-- 🔥 EVENT SECTION (NOW IN THE RIGHT PLACE) -->
+    <section class="event-section">
+        <h2>NEXT WEEK</h2>
+        <p>We’re hosting an event next week. Pull up, bring the crew, and come be part of the lineup.</p>
+
+
+        <div class="event-card">
+            <img src="images/carmeet.webp" alt="Upcoming Club X Event">
+
+
+            <div class="event-info">
+                <h3>CLUB X NIGHT MEET</h3>
+                <div class="event-meta">
+                    April 4 • 12:00 pm • 30699 Russell Ranch RD
+                </div>
+
+
+                <div class="event-description">
+                    Join Club X for our upcoming meet next week. Expect clean builds, good energy, photos, and a solid
+                    night with the community.
+                </div>
+
+
+                <a href="https://www.instagram.com/officialclubx" target="_blank" class="event-btn">
+                    FOLLOW FOR EVENT DETAILS
+                </a>
+            </div>
+        </div>
+    </section>
+
+
     <!-- SERVICES -->
     <div class="services">
+
 
         <div class="service-box">
             <h3>Photography</h3>
             <p>Clean car photography for meets, rolling shots, features, and social media content.</p>
-
             <div class="handles">
                 <a href="https://instagram.com/fredy_e34" target="_blank">@fredy_e34</a>
                 <a href="https://instagram.com/skinlessmedia" target="_blank">@skinlessmedia</a>
@@ -240,34 +369,34 @@
             </div>
         </div>
 
+
         <div class="service-box">
             <h3>Tows</h3>
-            <p>Reliable towing support for your vehicles when you need a hand getting where you need to go.</p>
-
+            <p>Reliable towing support for your vehicles.</p>
             <div class="handles">
                 <a href="https://instagram.com/freddys_towing" target="_blank">@freddys_towing</a>
             </div>
         </div>
 
+
         <div class="service-box">
             <h3>Tires</h3>
-            <p>We offer quality tires for performance, daily driving, and builds — reliable grip, clean look, and ready
-                for the road.</p>
-
+            <p>Quality tires for performance and daily driving.</p>
             <div class="handles">
                 <a href="https://instagram.com/boyztirez" target="_blank">@boyztires</a>
             </div>
         </div>
 
-    </div>
 
+    </div>
     <!-- GALLERY -->
     <div class="gallery">
-        <img src="images/DSC_0384.JPG">
-        <img src="images/danny.JPG">
-        <img src="images/SON04375.jpeg">
-        <img src="images/SON04385.JPG">
+        <img src="images/car6.webp">
+        <img src="images/danny.webp">
+        <img src="images/car21.webp">
+        <img src="images/car17.webp">
     </div>
+
 
     <!-- VIDEO -->
     <div class="video-section">
@@ -275,12 +404,20 @@
             <source src="videos/Untitleduu.mov" type="video/mp4">
         </video>
     </div>
+    <div class="video-section">
+        <video controls>
+            <source src="videos/Timeline-1.mov" type="video/mp4">
+        </video>
+    </div>
+
 
     <!-- FOOTER -->
     <footer>
         © 2026 Club X
     </footer>
 
+
 </body>
+
 
 </html>

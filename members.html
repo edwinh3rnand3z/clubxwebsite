@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club X - Members</title>
+
 
     <style>
         body {
@@ -13,12 +15,14 @@
             background-color: #0a0a0a;
         }
 
+
         /* NAVBAR */
         nav {
             background-color: #111;
             padding: 15px;
             text-align: center;
         }
+
 
         nav a {
             color: rgb(120, 120, 120);
@@ -27,9 +31,11 @@
             font-size: 14px;
         }
 
+
         nav a:hover {
             color: #0a26df;
         }
+
 
         /* HERO */
         .hero {
@@ -39,6 +45,7 @@
             overflow: hidden;
         }
 
+
         .bg-video {
             position: absolute;
             width: 100%;
@@ -46,30 +53,35 @@
             object-fit: cover;
         }
 
+
         .logo {
             position: absolute;
             top: 25%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 350px;
+            width: 500px;
             z-index: 2;
             animation: glowPulse 3s infinite alternate;
         }
+
 
         .logo:hover {
             transform: translate(-50%, -55%) scale(1.05);
             filter: drop-shadow(0px 25px 40px rgb(255, 0, 0));
         }
 
+
         @keyframes glowPulse {
             from {
                 filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
             }
 
+
             to {
                 filter: drop-shadow(0 0 60px rgb(255, 255, 255));
             }
         }
+
 
         /* GALLERY GRID */
         .gallery {
@@ -79,11 +91,13 @@
             padding: 20px;
         }
 
+
         .gallery h2 {
             grid-column: span 2;
-            color: white;
+            color: rgb(16, 0, 0);
             text-align: center;
         }
+
 
         /* MEMBER CARD */
         .member {
@@ -91,12 +105,14 @@
             overflow: hidden;
         }
 
+
         .member-img {
             width: 100%;
             height: 300px;
             object-fit: cover;
             display: block;
         }
+
 
         /* HANDLE OVERLAY */
         .handle {
@@ -110,12 +126,14 @@
             z-index: 2;
         }
 
+
         /* HOVER EFFECT */
         .member:hover .handle {
             opacity: 1;
             transform: translateX(-50%) scale(1);
             filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
         }
+
 
         /* DARK OVERLAY */
         .member::after {
@@ -127,9 +145,11 @@
             transition: 0.3s;
         }
 
+
         .member:hover::after {
             opacity: 1;
         }
+
 
         /* MOBILE FIX */
         @media (max-width: 600px) {
@@ -137,10 +157,12 @@
                 grid-template-columns: 1fr;
             }
 
+
             .gallery h2 {
                 grid-column: span 1;
             }
         }
+
 
         /* FOOTER */
         footer {
@@ -153,7 +175,9 @@
     </style>
 </head>
 
+
 <body>
+
 
     <!-- HERO -->
     <div class="hero">
@@ -161,10 +185,12 @@
             <source src="videos/Timeline13.mp4" type="video/mp4">
         </video>
 
+
         <a href="https://www.instagram.com/officialclubx">
             <img src="images/clubxlogo.PNG" class="logo">
         </a>
     </div>
+
 
     <!-- NAV -->
     <nav>
@@ -176,60 +202,72 @@
         <a href="contact.html">CONTACT</a>
     </nav>
 
+
     <!-- MEMBERS -->
     <div class="gallery">
         <h2>Meet Our Members</h2>
 
+
         <div class="member">
-            <img src="images/SON03269.jpeg" class="member-img">
+            <img src="images/car16.webp" class="member-img">
             <a href="https://instagram.com/fredy_e34">
                 <img src="images/fredy.png" class="handle">
             </a>
         </div>
 
+
         <div class="member">
-            <img src="images/SON04385.JPG" class="member-img">
+            <img src="images/car19.webp" class="member-img">
             <a href="https://instagram.com/vettesyyy">
                 <img src="images/vettesyyy.png" class="handle">
             </a>
         </div>
 
+
         <div class="member">
-            <img src="images/IMG_9372.jpg" class="member-img">
+            <img src="images/car1.webp" class="member-img">
+
             <a href="https://instagram.com/jaimexmadridd">
                 <img src="images/jaime.png" class="handle">
             </a>
         </div>
 
+
         <div class="member">
-            <img src="images/SON04375.jpeg" class="member-img">
+            <img src="images/car8.webp" class="member-img">
             <a href="https://instagram.com/fsdamiannn">
                 <img src="images/damian.png" class="handle">
             </a>
         </div>
 
+
         <div class="member">
-            <img src="images/danny.JPG" class="member-img">
+            <img src="images/danny.webp" class="member-img">
             <a href="https://instagram.com/skinlessmedia">
                 <img src="images/dannyig.png" class="handle">
             </a>
         </div>
 
+
         <div class="member">
-            <img src="images/SON04412.jpeg" class="member-img">
+            <img src="images/car22.webp" class="member-img">
             <a href="https://instagram.com/_edwinhernand3z_">
                 <img src="images/edwin.png" class="handle">
             </a>
         </div>
 
+
         <div class="member">
-            <img src="images/IMG_9100.jpeg" class="member-img">
+            <img src="images/mercedes2.webp" class="member-img">
             <a href="https://instagram.com/1g2cme">
                 <img src="images/1g2me.png" class="handle">
             </a>
         </div>
 
+
     </div>
+
+
 
 
     <!-- FOOTER -->
@@ -237,6 +275,8 @@
         © 2026 Club X
     </footer>
 
+
 </body>
+
 
 </html>
