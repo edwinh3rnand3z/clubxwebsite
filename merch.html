@@ -2,9 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Security-Policy"content="default-scr 'self'; img-src 'self'https: data:; script-src 'self' https://cdn.jsdelivr.net; 'self' 'unsafe-inline' https://fonts.googleapis.com;">
+   <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               img-src 'self' https: data:;
+               script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';
+               style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+               font-src https://fonts.gstatic.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content"DENY">
+    <meta http-equiv="X-Frame-Options" content"=DENY">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
