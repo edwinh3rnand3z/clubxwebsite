@@ -2,14 +2,25 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Club X | Dashboard</title>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Club X</title>
+
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+<<<<<<< HEAD
             background: #000;
+=======
+            background-color: #0a0a0a;
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             color: white;
         }
 
@@ -20,16 +31,25 @@
         }
 
         nav a {
+<<<<<<< HEAD
             color: rgb(140, 140, 140);
             margin: 0 15px;
             text-decoration: none;
             font-size: 14px;
+=======
+            color: rgb(120, 120, 120);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
         }
 
         nav a:hover {
             color: white;
         }
 
+<<<<<<< HEAD
         .hero {
             position: relative;
             width: 100%;
@@ -86,10 +106,28 @@
         }
 
         .user-card h2 {
+=======
+        .dashboard-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .top-box {
+            background: #111;
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .top-box h1 {
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             margin-top: 0;
             letter-spacing: 2px;
         }
 
+<<<<<<< HEAD
         .user-card p {
             color: #aaa;
             line-height: 1.7;
@@ -268,18 +306,128 @@
             nav a {
                 display: inline-block;
                 margin: 6px 10px;
+=======
+        .top-box p {
+            color: #bbb;
+        }
+
+        .upload-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            background: #1a1a1a;
+            color: white;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            background: rgb(35, 27, 105);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: rgb(1, 25, 86);
+            transform: scale(1.02);
+        }
+
+        #message {
+            margin-top: 15px;
+            color: #bbb;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #111;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: #000;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .file-name {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 12px;
+            word-break: break-word;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 14px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.03);
+        }
+
+        .empty-state {
+            color: #999;
+            text-align: center;
+            padding: 40px 10px;
+            background: #111;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .upload-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            button,
+            input[type="file"] {
+                width: 100%;
+                box-sizing: border-box;
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             }
         }
     </style>
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="hero">
         <img src="images/clubx.webp" class="bg" alt="Club X background" />
         <a href="https://www.instagram.com/officialclubx" target="_blank">
             <img src="images/clubxlogo.PNG" class="logo" alt="Club X logo" />
         </a>
     </div>
+=======
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
 
     <nav>
         <a href="index.html">HOME</a>
@@ -294,6 +442,7 @@
         <a href="dashboard.html">DASHBOARD</a>
     </nav>
 
+<<<<<<< HEAD
     <section class="dash-wrap">
         <div class="dash-title">
             <h1>DASHBOARD</h1>
@@ -433,6 +582,127 @@
 
         window.logoutUser = logoutUser;
     </script>
+=======
+    <div class="dashboard-container">
+        <div class="top-box">
+            <h1>Your Dashboard</h1>
+            <p id="userInfo">Checking login...</p>
+
+            <div class="upload-row">
+                <input type="file" id="fileInput" accept="image/*" multiple>
+                <button id="uploadBtn">Upload Images</button>
+                <button id="logoutBtn">Log Out</button>
+            </div>
+
+            <p id="message"></p>
+        </div>
+
+        <div id="gallery" class="gallery"></div>
+    </div>
+
+    <script type="module">
+        import { auth, storage } from './firebase-config.js';
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import {
+            ref,
+            uploadBytes,
+            listAll,
+            getDownloadURL
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        const userInfo = document.getElementById('userInfo');
+        const message = document.getElementById('message');
+        const gallery = document.getElementById('gallery');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const fileInput = document.getElementById('fileInput');
+
+        let currentUser = null;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                userInfo.textContent = "Checking login...";
+                setTimeout(() => {
+                    if (!auth.currentUser) {
+                        window.location.href = "users.html";
+                    }
+                }, 1500);
+                return;
+            }
+            currentUser = user;
+            userInfo.textContent = `Logged in as: ${user.email}`;
+            await loadImages();
+        });
+
+        logoutBtn.addEventListener('click', async () => {
+            await signOut(auth);
+            window.location.href = "users.html";
+        });
+
+        uploadBtn.addEventListener('click', async () => {
+            if (!currentUser) return;
+
+            const files = fileInput.files;
+
+            if (!files.length) {
+                message.textContent = "Please choose at least one image.";
+                return;
+            }
+
+            message.textContent = "Uploading...";
+
+            try {
+                for (const file of files) {
+                    const fileRef = ref(storage, `users/${currentUser.uid}/downloads/${file.name}`);
+                    await uploadBytes(fileRef, file);
+                }
+
+                message.textContent = "Upload complete.";
+                fileInput.value = "";
+                await loadImages();
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        });
+
+        async function loadImages() {
+            if (!currentUser) return;
+
+            gallery.innerHTML = "";
+
+            try {
+                const folderRef = ref(storage, `users/${currentUser.uid}/downloads/`);
+                const result = await listAll(folderRef);
+
+                if (result.items.length === 0) {
+                    gallery.innerHTML = `<div class="empty-state">No images yet. Upload some to see them here.</div>`;
+                    return;
+                }
+
+                for (const itemRef of result.items) {
+                    const url = await getDownloadURL(itemRef);
+
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    card.innerHTML = `
+            <img src="${url}" alt="${itemRef.name}">
+            <div class="card-content">
+              <div class="file-name">${itemRef.name}</div>
+              <a class="download-btn" href="${url}" download="${itemRef.name}">Download</a>
+            </div>
+          `;
+
+                    gallery.appendChild(card);
+                }
+            } catch (error) {
+                gallery.innerHTML = `<div class="empty-state">Could not load images.</div>`;
+                message.textContent = error.message;
+            }
+        }
+    </script>
+
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+<<<<<<< HEAD
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -77,3 +78,21 @@ export {
     getDownloadURL,
     deleteObject
 };
+=======
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDNZB64SpHhkb1PuwqudgnJpygY4ltH7oM",
+  authDomain: "officialclub-x.firebaseapp.com",
+  projectId: "officialclub-x",
+  storageBucket: "officialclub-x.appspot.com",
+  messagingSenderId: "1066159341532",
+  appId: "1:1066159341532:web:e3bcbf2ab51871ed6d5919"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+export const storage = getStorage(app);
+>>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
