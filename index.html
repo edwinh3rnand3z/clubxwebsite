@@ -46,7 +46,75 @@
         nav a:hover {
             color: #ffffff;
         }
+        /* COMING SOON SECTION */
+        .coming-soon {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .coming-soon h1 {
+            color: white;
+            font-size: 50px;
+            letter-spacing: 10px;
+            margin: 0;
+
+            opacity: 0;
+            transform: translateY(30px);
+
+            animation: fadeSlide 1.5s ease forwards,
+                glowPulse 2.5s infinite alternate 1.5s,
+                flicker 3s infinite 2s;
+        }
+
+        .coming-soon p {
+            color: gray;
+            letter-spacing: 4px;
+            margin-top: 15px;
+
+            opacity: 0;
+            animation: fadeSlide 1.5s ease forwards 0.5s;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            }
+
+            to {
+                text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        @keyframes flicker {
+
+            0%,
+            18%,
+            22%,
+            25%,
+            53%,
+            57%,
+            100% {
+                opacity: 1;
+            }
+
+            20%,
+            24%,
+            55% {
+                opacity: 0.4;
+            }
+        }
 
         /* HERO */
         .hero {
