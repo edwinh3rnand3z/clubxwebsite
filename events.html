@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self';
                img-src 'self' https: data:;
-               script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';
+               script-src 'self' https://www.gstatic.com https://cdn.jsdelivr.net 'unsafe-inline';
+               connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.cloudfunctions.net;
                style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
                font-src https://fonts.gstatic.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -201,6 +202,32 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
+        .events-list {
+            display: grid;
+            gap: 20px;
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding: 0 20px 50px;
+        }
+
+        .live-event {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 15px;
+            padding: 24px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+        }
+
+        .live-event h2 {
+            margin: 0 0 8px;
+            letter-spacing: 3px;
+        }
+
+        .live-event p {
+            color: #bbb;
+            line-height: 1.6;
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -264,13 +291,19 @@
 
 
     <!-- NAV -->
-    <nav>
+    
+        <nav>
         <a href="index.html">HOME</a>
         <a href="events.html">EVENTS</a>
         <a href="merch.html">MERCH</a>
         <a href="members.html">MEMBERS</a>
         <a href="gallery.html">GALLERY</a>
         <a href="contact.html">CONTACT</a>
+        <a href="users.html">USER LOGIN</a>
+        <a href="admin.html">ADMIN LOG IN</a>
+        <a href="signup.html">SIGN UP</a>
+        <a href="dashboard.html">DASHBOARD</a>
+   
     </nav>
     <div class="coming-soon">
         <h1>STAY TUNED FOR FUTURE EVENTS</h1>
@@ -280,6 +313,8 @@
         </a>
 
     </div>
+
+    <section class="events-list" id="eventsList" aria-live="polite"></section>
 
     <!-- EVENT SECTION -->
 
@@ -291,6 +326,34 @@
 
 
 
+
+    <script type="module">
+        import { db, collection, getDocs, query, orderBy } from "./firebase-config.js";
+
+        const eventsList = document.getElementById("eventsList");
+
+        function eventMarkup(event) {
+            return `
+                <article class="live-event">
+                    <h2>${event.title || "CLUB X EVENT"}</h2>
+                    <p>${event.date || "Date coming soon"}${event.location ? ` | ${event.location}` : ""}</p>
+                    ${event.details ? `<p>${event.details}</p>` : ""}
+                </article>
+            `;
+        }
+
+        async function loadEvents() {
+            try {
+                const snap = await getDocs(query(collection(db, "events"), orderBy("date", "asc")));
+                const events = snap.docs.map((eventDoc) => eventDoc.data());
+                eventsList.innerHTML = events.map(eventMarkup).join("");
+            } catch (error) {
+                console.warn("Could not load events", error);
+            }
+        }
+
+        loadEvents();
+    </script>
 
     <!-- FOOTER -->
     <footer>

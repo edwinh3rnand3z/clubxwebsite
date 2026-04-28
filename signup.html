@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club X | Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(140, 140, 140);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero img.bg {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+            opacity: .45;
+        }
+
+        .hero img.logo {
+            position: absolute;
+            top: 28%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 440px;
+            max-width: 72%;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        .wrap {
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 520px;
+            background: #111;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, .05);
+            animation: fadeSlide 1s ease forwards;
+        }
+
+        .card h1 {
+            text-align: center;
+            letter-spacing: 6px;
+            font-size: 34px;
+            margin-top: 0;
+            animation: flicker 3s infinite 1s;
+        }
+
+        .card p {
+            text-align: center;
+            color: #aaa;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+        }
+
+        .group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #666;
+            box-shadow: 0 0 12px rgba(255, 255, 255, .08);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background: #fff;
+            color: #000;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: .3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 18px rgba(255, 255, 255, .2);
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            color: #bbb;
+            min-height: 22px;
+            font-size: 14px;
+        }
+
+        .links {
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        .links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .links a:hover {
+            color: #fff;
+        }
+
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            from {
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, .6));
+            }
+
+            to {
+                filter: drop-shadow(0 0 60px white);
+            }
+        }
+
+        @keyframes flicker {
+
+            0%,
+            18%,
+            22%,
+            25%,
+            53%,
+            57%,
+            100% {
+                opacity: 1;
+            }
+
+            20%,
+            24%,
+            55% {
+                opacity: .4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <img src="images/clubx.webp" class="bg" alt="Club X background">
+        <a href="https://www.instagram.com/officialclubx" target="_blank">
+            <img src="images/clubxlogo.PNG" class="logo" alt="Club X logo">
+        </a>
+    </div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="merch.html">MERCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="users.html">USER LOGIN</a>
+        <a href="admin.html">ADMIN LOG IN</a>
+        <a href="signup.html">SIGN UP</a>
+        <a href="dashboard.html">DASHBOARD</a>
+    </nav>
+
+    <section class="wrap">
+        <div class="card">
+            <h1>SIGN UP</h1>
+            <p>JOIN THE CLUB X GARAGE</p>
+
+            <div class="group">
+                <label for="fullname">FULL NAME</label>
+                <input type="text" id="fullname" placeholder="Enter your full name">
+            </div>
+
+            <div class="group">
+                <label for="username">USERNAME</label>
+                <input type="text" id="username" placeholder="Example: member-john">
+            </div>
+
+            <div class="group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+
+            <div class="group">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" placeholder="Create a password">
+            </div>
+
+            <button class="btn" onclick="signup()">CREATE ACCOUNT</button>
+            <div class="message" id="message"></div>
+
+            <div class="links">
+                <a href="users.html">Already have an account? Log in</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2026 Club X</footer>
+
+    <script type="module">
+        import { auth, db, createUserWithEmailAndPassword, setDoc, doc } from "./firebase-config.js";
+
+        async function signup() {
+            const fullname = document.getElementById("fullname").value.trim();
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            message.textContent = "";
+
+            if (!fullname || !username || !email || !password) {
+                message.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            try {
+                const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+                await setDoc(doc(db, "users", cred.user.uid), {
+                    fullName: fullname,
+                    username,
+                    email,
+                    role: "user",
+                    active: true,
+                    createdAt: new Date().toISOString()
+                });
+
+                message.textContent = "Account created successfully.";
+                setTimeout(() => window.location.href = "dashboard.html", 900);
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
+
+        window.signup = signup;
+    </script>
+</body>
+
+</html>

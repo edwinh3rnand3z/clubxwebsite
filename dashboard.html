@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club X | Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        nav {
+            background-color: #111;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(140, 140, 140);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero img.bg {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            opacity: 0.35;
+            display: block;
+        }
+
+        .hero img.logo {
+            position: absolute;
+            top: 34%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 390px;
+            max-width: 70%;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        .dash-wrap {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        .dash-title {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeSlide 1s ease forwards;
+        }
+
+        .dash-title h1 {
+            margin: 0 0 10px;
+            font-size: 40px;
+            letter-spacing: 7px;
+            animation: flicker 3s infinite 1s;
+        }
+
+        .dash-title p {
+            color: #aaa;
+            letter-spacing: 2px;
+        }
+
+        .user-card {
+            background: #111;
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 22px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+        }
+
+        .user-card h2 {
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+
+        .user-card p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .dash-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .dash-box {
+            background: #111;
+            padding: 24px;
+            border-radius: 16px;
+            transition: 0.3s ease;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.04);
+        }
+
+        .dash-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.10);
+        }
+
+        .dash-box h3 {
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+
+        .dash-box p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .dash-btn {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s ease;
+        }
+
+        .dash-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+        }
+
+        .client-gallery {
+            background: #111;
+            border-radius: 16px;
+            padding: 26px;
+            margin-top: 24px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+        }
+
+        .client-gallery h2 {
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+
+        .client-gallery p {
+            color: #aaa;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .photo-card {
+            background: #151515;
+            border: 1px solid #242424;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .photo-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card div {
+            padding: 12px;
+        }
+
+        .photo-card a {
+            color: white;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .logout-wrap {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .logout-btn {
+            padding: 12px 26px;
+            border: none;
+            border-radius: 30px;
+            background: white;
+            color: black;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #888;
+            margin-top: 30px;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            from {
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+            }
+
+            to {
+                filter: drop-shadow(0 0 60px white);
+            }
+        }
+
+        @keyframes flicker {
+
+            0%,
+            18%,
+            22%,
+            25%,
+            53%,
+            57%,
+            100% {
+                opacity: 1;
+            }
+
+            20%,
+            24%,
+            55% {
+                opacity: 0.4;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .dash-grid,
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 6px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <img src="images/clubx.webp" class="bg" alt="Club X background" />
+        <a href="https://www.instagram.com/officialclubx" target="_blank">
+            <img src="images/clubxlogo.PNG" class="logo" alt="Club X logo" />
+        </a>
+    </div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="merch.html">MERCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="users.html">USER LOGIN</a>
+        <a href="admin.html">ADMIN LOG IN</a>
+        <a href="signup.html">SIGN UP</a>
+        <a href="dashboard.html">DASHBOARD</a>
+    </nav>
+
+    <section class="dash-wrap">
+        <div class="dash-title">
+            <h1>DASHBOARD</h1>
+            <p>WELCOME BACK TO CLUB X</p>
+        </div>
+
+        <div class="user-card">
+            <h2 id="welcomeText">LOADING USER...</h2>
+            <p id="userInfo">Checking your account details.</p>
+        </div>
+
+        <div class="dash-grid">
+            <div class="dash-box">
+                <h3>EVENTS</h3>
+                <p>Keep up with upcoming meets, details, and featured Club X announcements.</p>
+                <a href="events.html" class="dash-btn">VIEW EVENTS</a>
+            </div>
+
+            <div class="dash-box">
+                <h3>GALLERY</h3>
+                <p>Explore media drops, rolling shots, and featured moments from the crew.</p>
+                <a href="gallery.html" class="dash-btn">OPEN GALLERY</a>
+            </div>
+
+            <div class="dash-box">
+                <h3>CONTACT</h3>
+                <p>Reach out for collaborations, club questions, services, or meet details.</p>
+                <a href="contact.html" class="dash-btn">CONTACT US</a>
+            </div>
+        </div>
+
+        <div class="client-gallery">
+            <h2>YOUR IMAGE DOWNLOADS</h2>
+            <p id="imageAccessText">Loading images assigned to your account.</p>
+            <div class="photo-grid" id="clientImageList"></div>
+        </div>
+
+        <div class="logout-wrap">
+            <button class="logout-btn" onclick="logoutUser()">LOG OUT</button>
+        </div>
+    </section>
+
+    <footer>© 2026 Club X</footer>
+
+    <script type="module">
+        import { auth, db, storage, signOut, onAuthStateChanged, doc, getDoc, collection, getDocs, query, where, orderBy, ref, getDownloadURL } from "./firebase-config.js";
+
+        const welcomeText = document.getElementById("welcomeText");
+        const userInfo = document.getElementById("userInfo");
+        const eventBox = document.querySelector(".dash-box");
+        const imageAccessText = document.getElementById("imageAccessText");
+        const clientImageList = document.getElementById("clientImageList");
+
+        async function loadEventSummary() {
+            if (!eventBox) return;
+
+            try {
+                const eventQuery = query(collection(db, "events"), orderBy("date", "asc"));
+                const eventSnap = await getDocs(eventQuery);
+                const nextEvent = eventSnap.docs.map((eventDoc) => ({ id: eventDoc.id, ...eventDoc.data() }))[0];
+
+                if (!nextEvent) return;
+
+                eventBox.querySelector("p").textContent = `${nextEvent.title || "Next meet"}${nextEvent.date ? ` - ${nextEvent.date}` : ""}${nextEvent.location ? ` at ${nextEvent.location}` : ""}.`;
+            } catch (error) {
+                console.warn("Could not load event summary", error);
+            }
+        }
+
+        async function loadClientImages(userId) {
+            clientImageList.innerHTML = "";
+            try {
+                const snap = await getDocs(query(collection(db, "userImages"), where("ownerUid", "==", userId)));
+                const images = snap.docs.map((imageDoc) => imageDoc.data());
+
+                if (!images.length) {
+                    imageAccessText.textContent = "No images have been assigned to your account yet.";
+                    return;
+                }
+
+                imageAccessText.textContent = `${images.length} image${images.length === 1 ? "" : "s"} ready to download.`;
+                for (const image of images) {
+                    const imageUrl = await getDownloadURL(ref(storage, image.storagePath));
+                    const card = document.createElement("article");
+                    card.className = "photo-card";
+                    card.innerHTML = `
+                        <img src="${imageUrl}" alt="${image.fileName || "Assigned image"}">
+                        <div>
+                            <strong>${image.fileName || "Club X image"}</strong>
+                            <br>
+                            <a href="${imageUrl}" download>DOWNLOAD IMAGE</a>
+                        </div>
+                    `;
+                    clientImageList.appendChild(card);
+                }
+            } catch (error) {
+                imageAccessText.textContent = "Could not load your images. Please try again later.";
+            }
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                window.location.href = "users.html";
+                return;
+            }
+
+            try {
+                const userRef = doc(db, "users", user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists()) {
+                    const data = userSnap.data();
+                    const name = data.fullName || data.fullname || data.username || "Member";
+                    const role = data.role || "user";
+                    welcomeText.textContent = `WELCOME, ${name.toUpperCase()}`;
+                    userInfo.textContent = `Email: ${data.email || user.email} | Role: ${role}`;
+                    if (role === "admin" || role === "superAdmin") {
+                        userInfo.textContent += " | Admin tools available";
+                    }
+                } else {
+                    welcomeText.textContent = "WELCOME, MEMBER";
+                    userInfo.textContent = `Email: ${user.email}`;
+                }
+            } catch (error) {
+                welcomeText.textContent = "WELCOME";
+                userInfo.textContent = "Could not load user details.";
+            }
+
+            loadEventSummary();
+            loadClientImages(user.uid);
+        });
+
+        async function logoutUser() {
+            await signOut(auth);
+            window.location.href = "users.html";
+        }
+
+        window.logoutUser = logoutUser;
+    </script>
+</body>
+
+</html>

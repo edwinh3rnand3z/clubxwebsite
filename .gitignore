@@ -1,4 +1,6 @@
 .DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
+admin-tools/
+admin-tools/serviceAccountKey.json
+functions/node_modules/
+firebase-debug.log
+firebase-debug.*.log

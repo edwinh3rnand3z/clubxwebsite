@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club X | Admin</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        nav {
+            background-color: #111;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(140, 140, 140);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero img.bg {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            opacity: 0.35;
+            display: block;
+        }
+
+        .hero img.logo {
+            position: absolute;
+            top: 34%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 390px;
+            max-width: 70%;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        .dashboard-wrap {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .title-box {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeSlide 1s ease forwards;
+        }
+
+        .title-box h1 {
+            font-size: 42px;
+            letter-spacing: 7px;
+            margin-bottom: 8px;
+            animation: flicker 3s infinite 1s;
+        }
+
+        .title-box p {
+            color: #aaa;
+            letter-spacing: 2px;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .admin-panel,
+        .login-panel {
+            background: #111;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+        }
+
+        .admin-panel h2,
+        .login-panel h2 {
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        label {
+            display: block;
+            color: #bbb;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #2a2a2a;
+            background: #1a1a1a;
+            color: #fff;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .full-row {
+            grid-column: 1 / -1;
+        }
+
+        .status {
+            min-height: 20px;
+            color: #bbb;
+            margin-top: 12px;
+        }
+
+        .list {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .list-item {
+            border: 1px solid #242424;
+            border-radius: 12px;
+            padding: 14px;
+            background: #151515;
+        }
+
+        .list-item strong {
+            display: block;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .list-item span {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .list-item .admin-btn {
+            margin-right: 8px;
+        }
+
+        .client-tools {
+            margin-top: 16px;
+            border-top: 1px solid #242424;
+            padding-top: 16px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .photo-card {
+            border: 1px solid #242424;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #151515;
+        }
+
+        .photo-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card div {
+            padding: 12px;
+        }
+
+        .photo-card a {
+            color: white;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .admin-card {
+            background: #111;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+            transition: 0.3s ease;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.12);
+        }
+
+        .admin-card h3 {
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+
+        .admin-card p {
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .admin-btn {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #888;
+            margin-top: 30px;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            from {
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+            }
+
+            to {
+                filter: drop-shadow(0 0 60px white);
+            }
+        }
+
+        @keyframes flicker {
+
+            0%,
+            18%,
+            22%,
+            25%,
+            53%,
+            57%,
+            100% {
+                opacity: 1;
+            }
+
+            20%,
+            24%,
+            55% {
+                opacity: 0.4;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 6px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <img src="images/clubx.webp" class="bg" alt="Club X background" />
+        <a href="https://www.instagram.com/officialclubx" target="_blank">
+            <img src="images/clubxlogo.PNG" class="logo" alt="Club X logo" />
+        </a>
+    </div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="merch.html">MERCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="users.html">USER LOGIN</a>
+        <a href="admin.html">ADMIN LOG IN</a>
+        <a href="signup.html">SIGN UP</a>
+        <a href="dashboard.html">DASHBOARD</a>
+    </nav>
+
+    <section class="dashboard-wrap">
+        <div class="title-box">
+            <h1>ADMIN DASHBOARD</h1>
+            <p>CONTROL PANEL FOR CLUB X</p>
+        </div>
+
+        <div id="loginPanel" class="login-panel hidden">
+            <h2>ADMIN LOGIN</h2>
+            <div class="form-grid">
+                <div>
+                    <label for="adminEmail">USERNAME OR EMAIL</label>
+                    <input id="adminEmail" type="text" autocomplete="username" placeholder="admin-edwin">
+                </div>
+                <div>
+                    <label for="adminPassword">PASSWORD</label>
+                    <input id="adminPassword" type="password" autocomplete="current-password">
+                </div>
+            </div>
+            <button class="admin-btn" id="adminLoginBtn">LOGIN</button>
+            <p class="status" id="loginStatus"></p>
+        </div>
+
+        <div id="adminApp" class="hidden">
+            <div class="admin-panel">
+                <h2 id="adminWelcome">ADMIN TOOLS</h2>
+                <p class="status" id="adminStatus"></p>
+                <button class="admin-btn" id="refreshBtn">REFRESH DATA</button>
+                <button class="admin-btn" id="logoutBtn">LOG OUT</button>
+            </div>
+
+            <div class="admin-grid">
+                <div class="admin-card">
+                    <h3>CREATE USER</h3>
+                    <p>Add member or admin accounts through the secured Cloud Function.</p>
+                    <div class="form-grid">
+                        <div>
+                            <label for="newFullName">FULL NAME</label>
+                            <input id="newFullName" type="text">
+                        </div>
+                        <div>
+                            <label for="newUsername">USERNAME</label>
+                            <input id="newUsername" type="text">
+                        </div>
+                        <div>
+                            <label for="newEmail">EMAIL</label>
+                            <input id="newEmail" type="email">
+                        </div>
+                        <div>
+                            <label for="newPassword">PASSWORD</label>
+                            <input id="newPassword" type="password">
+                        </div>
+                        <div class="full-row">
+                            <label for="newRole">ROLE</label>
+                            <select id="newRole">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="admin-btn" id="createUserBtn">CREATE ACCOUNT</button>
+                    <p class="status" id="createUserStatus"></p>
+                </div>
+
+                <div class="admin-card">
+                    <h3>EVENT CONTROL</h3>
+                    <p>Create upcoming meet details for the Events page and member dashboard.</p>
+                    <div class="form-grid">
+                        <div>
+                            <label for="eventTitle">TITLE</label>
+                            <input id="eventTitle" type="text" placeholder="Saturday Night Meet">
+                        </div>
+                        <div>
+                            <label for="eventDate">DATE</label>
+                            <input id="eventDate" type="date">
+                        </div>
+                        <div class="full-row">
+                            <label for="eventLocation">LOCATION</label>
+                            <input id="eventLocation" type="text" placeholder="Los Angeles, CA">
+                        </div>
+                        <div class="full-row">
+                            <label for="eventDetails">DETAILS</label>
+                            <textarea id="eventDetails" placeholder="Meet rules, time, and notes"></textarea>
+                        </div>
+                    </div>
+                    <button class="admin-btn" id="saveEventBtn">SAVE EVENT</button>
+                    <p class="status" id="eventStatus"></p>
+                </div>
+
+                <div class="admin-card">
+                    <h3>ACCOUNTS</h3>
+                    <p>See who created accounts and choose the client who should receive photos.</p>
+                    <div class="list" id="userList"></div>
+                </div>
+            </div>
+
+            <div class="admin-panel client-tools">
+                <h2>CLIENT IMAGE ACCESS</h2>
+                <p id="selectedClientText" class="status">Select a user account before uploading photos.</p>
+                <div class="form-grid">
+                    <div class="full-row">
+                        <label for="clientSelect">SELECT CLIENT</label>
+                        <select id="clientSelect">
+                            <option value="">Choose a user</option>
+                        </select>
+                    </div>
+                    <div class="full-row">
+                        <label for="clientImages">UPLOAD IMAGES</label>
+                        <input id="clientImages" type="file" accept="image/*" multiple>
+                    </div>
+                </div>
+                <button class="admin-btn" id="uploadImagesBtn">UPLOAD TO CLIENT</button>
+                <p class="status" id="imageStatus"></p>
+                <div class="photo-grid" id="assignedImageList"></div>
+            </div>
+
+            <div class="admin-panel">
+                <h2>LIVE EVENTS</h2>
+                <div class="list" id="eventList"></div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2026 Club X</footer>
+    <script type="module">
+        import {
+            auth,
+            db,
+            functions,
+            storage,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            signOut,
+            onAuthStateChanged,
+            updateProfile,
+            getDoc,
+            setDoc,
+            collection,
+            getDocs,
+            addDoc,
+            deleteDoc,
+            doc,
+            serverTimestamp,
+            query,
+            where,
+            orderBy,
+            httpsCallable,
+            ref,
+            uploadBytes,
+            getDownloadURL,
+            deleteObject
+        } from "./firebase-config.js";
+
+        const loginPanel = document.getElementById("loginPanel");
+        const adminApp = document.getElementById("adminApp");
+        const loginStatus = document.getElementById("loginStatus");
+        const adminStatus = document.getElementById("adminStatus");
+        const userList = document.getElementById("userList");
+        const eventList = document.getElementById("eventList");
+        const clientSelect = document.getElementById("clientSelect");
+        const selectedClientText = document.getElementById("selectedClientText");
+        const assignedImageList = document.getElementById("assignedImageList");
+        const imageStatus = document.getElementById("imageStatus");
+        const seedAdmin = {
+            username: "admin-edwin",
+            email: "edwinespitia@icloud.com",
+            password: "mpk3800",
+            fullName: "Edwin Admin"
+        };
+        let usersById = new Map();
+        let selectedClientId = "";
+
+        function setStatus(node, text) {
+            node.textContent = text || "";
+        }
+
+        function renderList(node, items, emptyText) {
+            node.innerHTML = "";
+            if (!items.length) {
+                node.innerHTML = `<div class="list-item"><span>${emptyText}</span></div>`;
+                return;
+            }
+            items.forEach((item) => node.appendChild(item));
+        }
+
+        function normalizeLogin(value) {
+            const login = value.trim();
+            if (login.toLowerCase() === seedAdmin.username) {
+                return seedAdmin.email;
+            }
+            return login.includes("@") ? login : `${login}@clubx.local`;
+        }
+
+        async function ensureSeedAdmin() {
+            try {
+                const cred = await createUserWithEmailAndPassword(auth, seedAdmin.email, seedAdmin.password);
+                await updateProfile(cred.user, { displayName: seedAdmin.fullName });
+                await setDoc(doc(db, "users", cred.user.uid), {
+                    fullName: seedAdmin.fullName,
+                    username: seedAdmin.username,
+                    email: seedAdmin.email,
+                    role: "admin",
+                    active: true,
+                    createdAt: new Date().toISOString()
+                });
+                return cred;
+            } catch (error) {
+                if (error.code !== "auth/email-already-in-use") {
+                    throw error;
+                }
+                return null;
+            }
+        }
+
+        function safeFileName(name) {
+            return name.toLowerCase().replace(/[^a-z0-9.]+/g, "-").replace(/(^-|-$)/g, "") || "image";
+        }
+
+        function describeUser(data) {
+            return data.fullName || data.username || data.email || "Member";
+        }
+
+        function setSelectedClient(userId) {
+            selectedClientId = userId;
+            clientSelect.value = userId;
+            const client = usersById.get(userId);
+            selectedClientText.textContent = client ? `Selected: ${describeUser(client)} (${client.email || "no email"})` : "Select a user account before uploading photos.";
+            loadAssignedImages();
+        }
+
+        async function loadUsers() {
+            try {
+                const snap = await getDocs(collection(db, "users"));
+                usersById = new Map();
+                clientSelect.innerHTML = `<option value="">Choose a user</option>`;
+
+                const items = snap.docs.map((userDoc) => {
+                    const data = { id: userDoc.id, ...userDoc.data() };
+                    usersById.set(userDoc.id, data);
+
+                    const option = document.createElement("option");
+                    option.value = userDoc.id;
+                    option.textContent = `${describeUser(data)} - ${data.email || "No email"}`;
+                    clientSelect.appendChild(option);
+
+                    const row = document.createElement("div");
+                    row.className = "list-item";
+                    row.innerHTML = `<strong>${describeUser(data)}</strong><span>${data.email || "No email"} | ${data.role || "user"}</span>`;
+                    const selectBtn = document.createElement("button");
+                    selectBtn.className = "admin-btn";
+                    selectBtn.textContent = "SELECT";
+                    selectBtn.addEventListener("click", () => setSelectedClient(userDoc.id));
+                    row.appendChild(selectBtn);
+                    return row;
+                });
+                renderList(userList, items, "No users found yet.");
+                if (selectedClientId && usersById.has(selectedClientId)) {
+                    clientSelect.value = selectedClientId;
+                }
+            } catch (error) {
+                renderList(userList, [], "User list unavailable. Check Firestore rules for admin reads.");
+            }
+        }
+
+        async function loadEvents() {
+            try {
+                const snap = await getDocs(query(collection(db, "events"), orderBy("date", "asc")));
+                const items = snap.docs.map((eventDoc) => {
+                    const data = eventDoc.data();
+                    const row = document.createElement("div");
+                    row.className = "list-item";
+                    row.innerHTML = `<strong>${data.title || "Untitled event"}</strong><span>${data.date || "No date"}${data.location ? ` | ${data.location}` : ""}</span>`;
+                    const removeBtn = document.createElement("button");
+                    removeBtn.className = "admin-btn";
+                    removeBtn.textContent = "DELETE";
+                    removeBtn.addEventListener("click", async () => {
+                        await deleteDoc(doc(db, "events", eventDoc.id));
+                        await loadEvents();
+                    });
+                    row.appendChild(removeBtn);
+                    return row;
+                });
+                renderList(eventList, items, "No events published yet.");
+            } catch (error) {
+                renderList(eventList, [], "Event list unavailable. Check Firestore rules for admin reads.");
+            }
+        }
+
+        async function loadAssignedImages() {
+            assignedImageList.innerHTML = "";
+            if (!selectedClientId) {
+                assignedImageList.innerHTML = `<div class="list-item"><span>No client selected.</span></div>`;
+                return;
+            }
+
+            try {
+                const snap = await getDocs(query(collection(db, "userImages"), where("ownerUid", "==", selectedClientId)));
+                const images = snap.docs.map((imageDoc) => ({ id: imageDoc.id, ...imageDoc.data() }));
+                if (!images.length) {
+                    assignedImageList.innerHTML = `<div class="list-item"><span>No images assigned to this client yet.</span></div>`;
+                    return;
+                }
+
+                for (const image of images) {
+                    const card = document.createElement("article");
+                    card.className = "photo-card";
+                    const imageUrl = await getDownloadURL(ref(storage, image.storagePath));
+                    card.innerHTML = `
+                        <img src="${imageUrl}" alt="${image.fileName || "Client image"}">
+                        <div>
+                            <strong>${image.fileName || "Client image"}</strong>
+                            <br>
+                            <a href="${imageUrl}" download>DOWNLOAD</a>
+                        </div>
+                    `;
+                    const deleteBtn = document.createElement("button");
+                    deleteBtn.className = "admin-btn";
+                    deleteBtn.textContent = "REMOVE ACCESS";
+                    deleteBtn.addEventListener("click", async () => {
+                        if (image.storagePath) {
+                            await deleteObject(ref(storage, image.storagePath));
+                        }
+                        await deleteDoc(doc(db, "userImages", image.id));
+                        await loadAssignedImages();
+                    });
+                    card.querySelector("div").appendChild(deleteBtn);
+                    assignedImageList.appendChild(card);
+                }
+            } catch (error) {
+                assignedImageList.innerHTML = `<div class="list-item"><span>Could not load assigned images. Check Firestore and Storage rules.</span></div>`;
+            }
+        }
+
+        async function uploadClientImages() {
+            const files = Array.from(document.getElementById("clientImages").files || []);
+            const client = usersById.get(selectedClientId);
+            if (!selectedClientId || !client) {
+                setStatus(imageStatus, "Select a client before uploading images.");
+                return;
+            }
+            if (!files.length) {
+                setStatus(imageStatus, "Choose one or more image files.");
+                return;
+            }
+
+            try {
+                setStatus(imageStatus, `Uploading ${files.length} image${files.length === 1 ? "" : "s"}...`);
+                for (const file of files) {
+                    const storagePath = `user-images/${selectedClientId}/${Date.now()}-${safeFileName(file.name)}`;
+                    const imageRef = ref(storage, storagePath);
+                    await uploadBytes(imageRef, file, {
+                        contentType: file.type,
+                        customMetadata: {
+                            ownerUid: selectedClientId,
+                            ownerEmail: client.email || "",
+                            uploadedBy: auth.currentUser.uid
+                        }
+                    });
+                    await addDoc(collection(db, "userImages"), {
+                        ownerUid: selectedClientId,
+                        ownerEmail: client.email || "",
+                        ownerName: describeUser(client),
+                        uploadedBy: auth.currentUser.uid,
+                        fileName: file.name,
+                        storagePath,
+                        contentType: file.type,
+                        size: file.size,
+                        createdAt: serverTimestamp()
+                    });
+                }
+                document.getElementById("clientImages").value = "";
+                setStatus(imageStatus, "Images uploaded and assigned to the selected client.");
+                await loadAssignedImages();
+            } catch (error) {
+                setStatus(imageStatus, `${error.message} Check that Firebase Storage is enabled and rules are deployed.`);
+            }
+        }
+
+        async function refreshData() {
+            setStatus(adminStatus, "Loading site data...");
+            await Promise.all([loadUsers(), loadEvents()]);
+            await loadAssignedImages();
+            setStatus(adminStatus, "Data loaded.");
+        }
+
+        document.getElementById("adminLoginBtn").addEventListener("click", async () => {
+            const login = document.getElementById("adminEmail").value.trim();
+            const email = normalizeLogin(login);
+            const password = document.getElementById("adminPassword").value;
+            if (!login || !password) {
+                setStatus(loginStatus, "Enter your admin username/email and password.");
+                return;
+            }
+            try {
+                setStatus(loginStatus, "Signing in...");
+                await signInWithEmailAndPassword(auth, email, password);
+            } catch (error) {
+                if (error.code === "auth/user-not-found" && email === seedAdmin.email && password === seedAdmin.password) {
+                    try {
+                        setStatus(loginStatus, "Creating admin account...");
+                        await ensureSeedAdmin();
+                        await signInWithEmailAndPassword(auth, email, password);
+                        return;
+                    } catch (createError) {
+                        setStatus(loginStatus, createError.message);
+                        return;
+                    }
+                }
+
+                if (error.code === "auth/too-many-requests") {
+                    setStatus(loginStatus, "Firebase temporarily blocked sign-in attempts. Wait a few minutes, then try again with admin-edwin and mpk3800.");
+                    return;
+                }
+
+                setStatus(loginStatus, error.message);
+            }
+        });
+
+        document.getElementById("logoutBtn").addEventListener("click", async () => {
+            await signOut(auth);
+        });
+
+        document.getElementById("refreshBtn").addEventListener("click", refreshData);
+        document.getElementById("uploadImagesBtn").addEventListener("click", uploadClientImages);
+        clientSelect.addEventListener("change", () => setSelectedClient(clientSelect.value));
+
+        document.getElementById("createUserBtn").addEventListener("click", async () => {
+            const payload = {
+                fullName: document.getElementById("newFullName").value.trim(),
+                username: document.getElementById("newUsername").value.trim(),
+                email: document.getElementById("newEmail").value.trim(),
+                password: document.getElementById("newPassword").value,
+                role: document.getElementById("newRole").value
+            };
+            if (Object.values(payload).some((value) => !value)) {
+                setStatus(document.getElementById("createUserStatus"), "Fill in every user field.");
+                return;
+            }
+            try {
+                setStatus(document.getElementById("createUserStatus"), "Creating account...");
+                const createStaffUser = httpsCallable(functions, "createStaffUser");
+                const result = await createStaffUser(payload);
+                setStatus(document.getElementById("createUserStatus"), result.data.message || "Account created.");
+                await loadUsers();
+            } catch (error) {
+                setStatus(document.getElementById("createUserStatus"), `${error.message} Make sure functions are deployed and your account has the superAdmin claim.`);
+            }
+        });
+
+        document.getElementById("saveEventBtn").addEventListener("click", async () => {
+            const title = document.getElementById("eventTitle").value.trim();
+            const date = document.getElementById("eventDate").value;
+            const location = document.getElementById("eventLocation").value.trim();
+            const details = document.getElementById("eventDetails").value.trim();
+            if (!title || !date || !location) {
+                setStatus(document.getElementById("eventStatus"), "Title, date, and location are required.");
+                return;
+            }
+            try {
+                await addDoc(collection(db, "events"), { title, date, location, details, createdAt: serverTimestamp() });
+                setStatus(document.getElementById("eventStatus"), "Event saved.");
+                document.getElementById("eventTitle").value = "";
+                document.getElementById("eventDate").value = "";
+                document.getElementById("eventLocation").value = "";
+                document.getElementById("eventDetails").value = "";
+                await loadEvents();
+            } catch (error) {
+                setStatus(document.getElementById("eventStatus"), `${error.message} Check Firestore write rules for admins.`);
+            }
+        });
+
+        onAuthStateChanged(auth, async (user) => {
+            setStatus(loginStatus, "");
+            if (!user) {
+                loginPanel.classList.remove("hidden");
+                adminApp.classList.add("hidden");
+                return;
+            }
+
+            const token = await user.getIdTokenResult(true);
+            const userSnap = await getDoc(doc(db, "users", user.uid));
+            const profile = userSnap.exists() ? userSnap.data() : {};
+            const role = token.claims.role || profile.role || (token.claims.superAdmin ? "superAdmin" : token.claims.admin ? "admin" : "user");
+            if (!["admin", "superAdmin"].includes(role)) {
+                loginPanel.classList.remove("hidden");
+                adminApp.classList.add("hidden");
+                setStatus(loginStatus, "This account is signed in, but it is not an admin account.");
+                return;
+            }
+
+            loginPanel.classList.add("hidden");
+            adminApp.classList.remove("hidden");
+            document.getElementById("adminWelcome").textContent = `ADMIN TOOLS - ${role.toUpperCase()}`;
+            await refreshData();
+        });
+    </script>
+</body>
+
+</html>
