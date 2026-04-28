@@ -2,157 +2,30 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Club X | Sign Up</title>
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Club X</title>
-
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-<<<<<<< HEAD
             background: #000;
             color: #fff;
         }
 
         nav {
             background: #111;
-=======
-            background-color: #0a0a0a;
-            color: white;
-        }
-
-        nav {
-            background-color: #111;
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             padding: 15px;
             text-align: center;
         }
 
         nav a {
-<<<<<<< HEAD
-=======
-            color: rgb(120, 120, 120);
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        .signup-container {
-            min-height: calc(100vh - 70px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-        }
-
-        .signup-box {
-            background: #111;
-            padding: 40px;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
-            text-align: center;
-        }
-
-        .signup-box h1 {
-            margin-bottom: 25px;
-            letter-spacing: 3px;
-        }
-
-        .signup-box input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 15px;
-            border: 1px solid #333;
-            border-radius: 8px;
-            background: #1a1a1a;
-            color: white;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-
-        .signup-box input:focus {
-            outline: none;
-            border-color: rgb(71, 29, 82);
-            box-shadow: 0 0 8px rgba(13, 27, 159, 0.4);
-        }
-
-        .signup-box button {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: rgb(35, 27, 105);
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .signup-box button:hover {
-            background: rgb(1, 25, 86);
-            transform: scale(1.02);
-        }
-
-        #message {
-            margin-top: 15px;
-            color: #bbb;
-            font-size: 14px;
-        }
-
-        .login-link {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #999;
-        }
-
-        .login-link a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .login-link a:hover {
-            color: rgb(89, 0, 255);
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: white;
-        }
-
-
-        /* NAVBAR */
-        nav {
-            background-color: #111;
-            padding: 15px;
-            text-align: center;
-        }
-
-
-        nav a {
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             color: rgb(140, 140, 140);
             margin: 0 15px;
             text-decoration: none;
             font-size: 14px;
         }
 
-<<<<<<< HEAD
         nav a:hover {
             color: #fff;
         }
@@ -297,48 +170,6 @@
                 transform: translateY(35px);
             }
 
-=======
-
-        nav a:hover {
-            color: #ffffff;
-        }
-
-        /* COMING SOON SECTION */
-        .coming-soon {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .coming-soon h1 {
-            color: white;
-            font-size: 50px;
-            letter-spacing: 10px;
-            margin: 0;
-
-            opacity: 0;
-            transform: translateY(30px);
-
-            animation: fadeSlide 1.5s ease forwards,
-                glowPulse 2.5s infinite alternate 1.5s,
-                flicker 3s infinite 2s;
-        }
-
-        .coming-soon p {
-            color: gray;
-            letter-spacing: 4px;
-            margin-top: 15px;
-
-            opacity: 0;
-            animation: fadeSlide 1.5s ease forwards 0.5s;
-        }
-
-        /* ANIMATIONS */
-
-        @keyframes fadeSlide {
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -347,19 +178,11 @@
 
         @keyframes glowPulse {
             from {
-<<<<<<< HEAD
                 filter: drop-shadow(0 0 20px rgba(255, 0, 0, .6));
             }
 
             to {
                 filter: drop-shadow(0 0 60px white);
-=======
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            }
-
-            to {
-                text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             }
         }
 
@@ -378,309 +201,17 @@
             20%,
             24%,
             55% {
-<<<<<<< HEAD
                 opacity: .4;
             }
         }
-=======
-                opacity: 0.4;
-            }
-        }
-
-        /* HERO */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-        }
-
-
-        .bg-video {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero {
-            position: relative;
-            width: 100%;
-        }
-
-
-        .hero img.bg {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-
-        .hero img.logo {
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            max-width: 70%;
-            animation: glowPulse 3s infinite alternate;
-        }
-
-
-        .hero img.logo:hover {
-            transform: translate(-50%, -55%) scale(1.05);
-            filter: drop-shadow(0px 25px 40px red);
-        }
-
-
-        @keyframes glowPulse {
-            from {
-                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
-            }
-
-
-            to {
-                filter: drop-shadow(0 0 60px white);
-            }
-        }
-
-
-        /* EVENT SECTION */
-        .event-section {
-            padding: 60px 20px 20px;
-            text-align: center;
-        }
-
-
-        .event-section h2 {
-            font-size: 32px;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-        }
-
-
-        .event-section p {
-            color: #bbb;
-            margin-bottom: 30px;
-        }
-
-
-        .event-card {
-            max-width: 800px;
-            margin: auto;
-            background: #111;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: eventReveal 1s ease-out, eventFloat 3.2s ease-in-out infinite alternate;
-        }
-
-
-        .event-card:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.14);
-        }
-
-
-        .event-card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-        }
-
-
-        .event-info {
-            padding: 25px;
-        }
-
-
-        .event-info h3 {
-            margin-top: 0;
-            letter-spacing: 2px;
-        }
-
-
-        .event-meta {
-            color: #ccc;
-            margin-bottom: 10px;
-        }
-
-
-        .event-description {
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-
-        .event-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: white;
-            color: black;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-
-        .event-btn:hover {
-            transform: scale(1.07);
-            box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
-        }
-
-
-        @keyframes eventReveal {
-            from {
-                opacity: 0;
-                transform: translateY(35px);
-            }
-
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        @keyframes eventFloat {
-            from {
-                transform: translateY(0);
-            }
-
-
-            to {
-                transform: translateY(-8px);
-            }
-        }
-
-
-        /* SERVICES */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 40px;
-        }
-
-
-        .service-box {
-            background: #111;
-            padding: 25px;
-            border-radius: 12px;
-            transition: 0.3s;
-            position: relative;
-        }
-
-
-        .service-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-        }
-
-
-        .handles {
-            margin-top: 15px;
-        }
-
-
-        .handles a {
-            display: inline-block;
-            margin: 5px 5px 0 0;
-            padding: 6px 12px;
-            background: #222;
-            border-radius: 20px;
-            font-size: 12px;
-            color: #aaa;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-
-        .handles a:hover {
-            color: white;
-            background: linear-gradient(45deg, #f109a8, rgb(226, 82, 173));
-            transform: scale(1.1);
-        }
-
-
-        /* GALLERY */
-        .gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding: 20px;
-        }
-
-
-        .gallery img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-
-        /* VIDEO */
-        .video-section {
-            padding: 20px;
-        }
-
-
-        video {
-            width: 100%;
-        }
-
-
-        /* FOOTER */
-        footer {
-            background: #111;
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-        }
-
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            .services {
-                grid-template-columns: 1fr;
-            }
-
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-
-
-            .event-card img {
-                height: 220px;
-            }
-
-
-        }
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
     </style>
 </head>
 
 <body>
     <div class="hero">
-<<<<<<< HEAD
         <img src="images/clubx.webp" class="bg" alt="Club X background">
         <a href="https://www.instagram.com/officialclubx" target="_blank">
             <img src="images/clubxlogo.PNG" class="logo" alt="Club X logo">
-=======
-        <video autoplay muted loop playsinline class="bg-video">
-            <source src="videos/mpk.mp4" type="video/mp4">
-        </video>
-
-
-
-        <a href="https://www.instagram.com/officialclubx" target="_blank">
-            <img src="images/clubxlogo.PNG" class="logo">
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
         </a>
     </div>
 
@@ -697,7 +228,6 @@
         <a href="dashboard.html">DASHBOARD</a>
     </nav>
 
-<<<<<<< HEAD
     <section class="wrap">
         <div class="card">
             <h1>SIGN UP</h1>
@@ -747,41 +277,10 @@
             message.textContent = "";
 
             if (!fullname || !username || !email || !password) {
-=======
-    <div class="signup-container">
-        <div class="signup-box">
-            <h1>Create Account</h1>
-
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button id="signupBtn">Sign Up</button>
-
-            <p id="message"></p>
-
-            <div class="login-link">
-                Already have an account? <a href="users.html">Log in</a>
-            </div>
-        </div>
-    </div>
-
-    <script type="module">
-        import { auth } from './firebase-config.js';
-        import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-        const signupBtn = document.getElementById('signupBtn');
-        const message = document.getElementById('message');
-
-        signupBtn.addEventListener('click', async () => {
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-
-            if (!email || !password) {
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
                 message.textContent = "Please fill in all fields.";
                 return;
             }
 
-<<<<<<< HEAD
             try {
                 const cred = await createUserWithEmailAndPassword(auth, email, password);
 
@@ -803,23 +302,6 @@
 
         window.signup = signup;
     </script>
-=======
-            if (password.length < 6) {
-                message.textContent = "Password must be at least 6 characters.";
-                return;
-            }
-
-            try {
-                await createUserWithEmailAndPassword(auth, email, password);
-                message.textContent = "Account created successfully.";
-                window.location.href = "dashboard.html";
-            } catch (error) {
-                message.textContent = error.message;
-            }
-        });
-    </script>
-
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
 </body>
 
 </html>

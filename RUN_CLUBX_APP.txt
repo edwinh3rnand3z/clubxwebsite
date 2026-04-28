@@ -1,0 +1,29 @@
+CLUB X APP - HOW TO RUN
+
+1. Unzip clubx-app-html.zip.
+
+2. Open Terminal in the unzipped folder.
+
+3. Start a local server:
+
+   python3 -m http.server 4174
+
+4. Open the app:
+
+   http://localhost:4174/
+
+Admin login:
+
+   username: admin-edwin
+   email: edwinespitia@icloud.com
+   password: mpk3800
+
+Important:
+
+- Do not open the HTML files directly with file:// because Firebase JavaScript modules work best through a local server.
+- Firebase Auth, Firestore, and Storage still use the officialclub-x Firebase project from firebase-config.js.
+- To deploy online, install Firebase CLI and run:
+
+   firebase deploy --only firestore:rules,storage,functions,hosting
+
+- The admin-tools folder and service account file are not included in the ZIP.

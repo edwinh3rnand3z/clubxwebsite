@@ -2,32 +2,17 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Club X | Admin</title>
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Club X</title>
-
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-<<<<<<< HEAD
             background: #000;
             color: white;
         }
 
-=======
-            background-color: #0a0a0a;
-        }
-
-        /* NAVBAR */
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
         nav {
             background-color: #111;
             padding: 15px;
@@ -35,28 +20,16 @@
         }
 
         nav a {
-<<<<<<< HEAD
             color: rgb(140, 140, 140);
             margin: 0 15px;
             text-decoration: none;
             font-size: 14px;
-=======
-            color: rgb(120, 120, 120);
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 2px;
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
         }
 
         nav a:hover {
             color: white;
         }
 
-<<<<<<< HEAD
-=======
-        /* HERO */
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
         .hero {
             position: relative;
             width: 100%;
@@ -64,20 +37,14 @@
 
         .hero img.bg {
             width: 100%;
-<<<<<<< HEAD
             height: 320px;
             object-fit: cover;
             opacity: 0.35;
-=======
-            height: 500px;
-            object-fit: cover;
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             display: block;
         }
 
         .hero img.logo {
             position: absolute;
-<<<<<<< HEAD
             top: 34%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -300,67 +267,6 @@
             }
 
             to {
-=======
-            top: 25%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            max-width: 70%;
-            animation: glowLogo 3s infinite alternate;
-        }
-
-        .hero img.logo:hover {
-            transform: translate(-50%, -55%) scale(1.05);
-            filter: drop-shadow(0px 25px 40px rgb(255, 0, 0));
-        }
-
-        @keyframes glowLogo {
-            from {
-                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
-            }
-
-            to {
-                filter: drop-shadow(0 0 60px rgb(255, 255, 255));
-            }
-        }
-
-        /* COMING SOON SECTION */
-        .coming-soon {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .coming-soon h1 {
-            color: white;
-            font-size: 50px;
-            letter-spacing: 10px;
-            margin: 0;
-
-            opacity: 0;
-            transform: translateY(30px);
-
-            animation: fadeSlide 1.5s ease forwards,
-                glowPulse 2.5s infinite alternate 1.5s,
-                flicker 3s infinite 2s;
-        }
-
-        .coming-soon p {
-            color: gray;
-            letter-spacing: 4px;
-            margin-top: 15px;
-
-            opacity: 0;
-            animation: fadeSlide 1.5s ease forwards 0.5s;
-        }
-
-        /* ANIMATIONS */
-
-        @keyframes fadeSlide {
-            to {
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -368,19 +274,11 @@
 
         @keyframes glowPulse {
             from {
-<<<<<<< HEAD
                 filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
             }
 
             to {
                 filter: drop-shadow(0 0 60px white);
-=======
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            }
-
-            to {
-                text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
             }
         }
 
@@ -403,7 +301,6 @@
             }
         }
 
-<<<<<<< HEAD
         @media (max-width: 900px) {
             .admin-grid {
                 grid-template-columns: 1fr;
@@ -413,28 +310,11 @@
                 display: inline-block;
                 margin: 6px 10px;
             }
-=======
-        /* MOBILE */
-        @media (max-width: 768px) {
-            .coming-soon h1 {
-                font-size: 32px;
-            }
-        }
-
-        /* FOOTER */
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
         }
     </style>
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="hero">
         <img src="images/clubx.webp" class="bg" alt="Club X background" />
         <a href="https://www.instagram.com/officialclubx" target="_blank">
@@ -442,9 +322,6 @@
         </a>
     </div>
 
-=======
-    <!-- NAVBAR -->
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
     <nav>
         <a href="index.html">HOME</a>
         <a href="events.html">EVENTS</a>
@@ -457,7 +334,6 @@
         <a href="signup.html">SIGN UP</a>
         <a href="dashboard.html">DASHBOARD</a>
     </nav>
-<<<<<<< HEAD
 
     <section class="dashboard-wrap">
         <div class="title-box">
@@ -955,19 +831,6 @@
             await refreshData();
         });
     </script>
-=======
-    <!-- Admin Info -->
-    <div class="admin-info">
-        <h1>Admin Dashboard</h1>
-        <p>Welcome, Admin!</p>
-    </div>
-    <!-- hero -->
-    <div class="hero">
-        <img src="images/car3.webp" class="bg">
-
-    </div>
-    <div>
->>>>>>> 90ecc91 (added dashboard, signup, firebase config and images)
 </body>
 
 </html>
